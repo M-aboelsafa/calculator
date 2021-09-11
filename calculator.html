@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+    <title>js</title>
+    <head>
+
+    </head>
+   <body>
+    <div class="grid-container">
+    <input  type = "text" id = "item" placeholder="0" /> 
+
+    <input type = "button" id="item1" value="c" onclick="myFunctionClear()">
+    <input type = "button" id="item1" value="^" onclick="display('**')">
+    <input type = "button" id="item1" value="del" onclick="delete1()">
+    <input type = "button" id="item2" value="/" onclick="display('/')">
+
+    <input  type = "button" value="7" onclick="display('7')" >
+    <input  type ="button" value="8" onclick ="display('8')">
+    <input  type ="button" value="9" onclick ="display('9')">
+    <input type = "button" id="item2" value="x" onclick="display('*')">
+
+    <input  type ="button" value="4"onclick="display('4')">
+    <input  type ="button" value="5"onclick="display('5')">
+    <input type = "button" value="6"onclick="display('6')">
+    <input type = "button" id="item2" value="-" onclick="display('-')">
+
+    <input  type ="button" value="1"onclick="display('1')">
+    <input  type ="button" value="2"onclick="display('2')">
+    <input type = "button" value="3"onclick="display('3')">
+    <input type = "button" id="item2" value="+" onclick="display('+')">
+    <input type = "button" id="item4" value="0"onclick="display('0')">
+    <input type = "button"  value="." onclick="display('.')">
+    <input type = "button" id="item2" value="="onclick="calculate()">
+  </div>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .grid-container {
+     display: grid;
+     grid-template-columns: repeat(4,80px) ;
+     grid-template-rows: repeat(7,70px);
+     row-gap: 10px;
+     column-gap: 10px;
+     padding: 25px;
+     background-color:black;
+     border-radius: 10px;
+   }
+.grid-container > input {
+  background-color: rgb(98, 101, 103 );
+  border-radius: 50%;
+  color: white;
+  border: none;
+  box-shadow: none;
+  font-size: 30px;
+  text-align: center;
+}
+#item {
+ grid-row-start: 1;
+ grid-row-end: 3;
+ grid-column-start: 1;
+ grid-column-end: 5 ;
+ background-color:black;
+ border: none;
+ text-align: right;
+}
+#item1{
+   background-color: #F2F3F4 ;
+   border: none;
+   border-radius: 50%;
+   color: black;
+}
+#item2{
+  background-color: #F39C12;
+  border-radius: 50%;
+  border: none;
+  box-shadow: none;
+}
+#item4 {
+  background-color: rgb(98, 101, 103 );
+ grid-column-start: 1;
+ grid-column-end: 3 ;
+ border-radius: 30px;
+ box-shadow: none;
+ border: none;
+
+}
+   </style>
+  <script>
+    function myFunctionClear(){
+          document.getElementById("item").value = ""
+   }
+    function display(value) {
+   document.getElementById("item").value += value;
+  }
+  function delete1(){
+    let p = document.getElementById("item").value;
+  p=p.slice(0,-1);
+  document.getElementById("item").value=p;
+  }
+  let calculate=()=>{
+    try {
+  let p = document.getElementById("item").value;
+  let q = eval(p);
+  document.getElementById('item').value = q
+    } catch (error) {
+      alert("please enter valid number")
+    }
+  } 
+</script>
+    </body>
